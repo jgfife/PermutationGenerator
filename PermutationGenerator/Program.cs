@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace PermutationGenerator
             bool loop = true;
             int count = 1;
             int permutations = Convert.ToInt32(Console.ReadLine());
+            var timer = Stopwatch.StartNew();
             List<int> a = new List<int>();
             List<int> end = new List<int>();
             for (int i = 1; i <= permutations; i++)
@@ -34,7 +36,9 @@ namespace PermutationGenerator
                 bool eq = a.SequenceEqual(end);
                 if (eq)
                 {
+                    timer.Stop();
                     Console.Write(count.ToString() + " Permutations!" + "\r\n");
+                    Console.Write("Runtime: " + timer.Elapsed.TotalSeconds + " seconds. \r\n");
                     break;
                 }
                 int j = permutations - 2;
