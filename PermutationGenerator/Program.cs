@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PermutationGenerator
 {
@@ -12,7 +10,6 @@ namespace PermutationGenerator
         static void Main(string[] args)
         {
             Console.Write("Enter the number of permutations desired: ");
-            bool loop = true;
             int count = 1;
             int permutations = Convert.ToInt32(Console.ReadLine());
             var timer = Stopwatch.StartNew();
@@ -25,13 +22,9 @@ namespace PermutationGenerator
             }
 
             end.Reverse();
-            for (int i = 0; i < a.Count(); i++)
-            {
-                Console.Write(a[i].ToString() + ' ');
-            }
 
             Console.Write("\r\n");
-            while (loop)
+            while (true)
             {
                 bool eq = a.SequenceEqual(end);
                 if (eq)
@@ -66,11 +59,6 @@ namespace PermutationGenerator
                     r--; //r := r −1 
                     s++; //s:= s + 1 { this puts the tail end of the permutation after the jth position in increasing order}
                 }
-                for (int i = 0; i < a.Count(); i++)
-                {
-                    Console.Write(a[i].ToString() + ' ');
-                }
-                Console.Write("\r\n");
                 count++;
             }
         }
